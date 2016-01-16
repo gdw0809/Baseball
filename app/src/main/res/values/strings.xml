@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Baseball</string>
+
+    <string name="help_text">
+        숫자야구\n
+        숫자 야구는 서로 다른 숫자 조합을 맞추는 게임입니다.\n
+        게임 방법 스트라이크 등등등
+   </string>
 </resources>

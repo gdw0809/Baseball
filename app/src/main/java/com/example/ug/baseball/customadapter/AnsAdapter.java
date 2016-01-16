@@ -1,0 +1,58 @@
+package com.example.ug.baseball.customadapter;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
+
+import com.example.ug.baseball.R;
+
+import java.util.ArrayList;
+
+/**
+ * Created by UG on 2015-12-27.
+ */
+public class AnsAdapter extends BaseAdapter {
+    private Context context;
+    private LayoutInflater inflater;
+    private ArrayList<AnsListBean> ansArrayList;
+    private int layout;
+
+    public AnsAdapter(Context context, int layout, ArrayList<AnsListBean> ansArrayList) {
+        this.context = context;
+        inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        this.ansArrayList = ansArrayList;
+        this.layout = layout;
+    }
+
+    @Override
+    public int getCount() {
+        return ansArrayList.size();
+    }
+
+    @Override
+    public Object getItem(int position) {
+        return ansArrayList.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public View getView(int position, View view, ViewGroup parent) {
+        if(view == null) {
+            //view = inflater.inflate(R.layout.anslist, null);
+            view = inflater.inflate(layout, null);
+        }
+
+        TextView ansNum = (TextView) view.findViewById(R.id.ansNum);
+        TextView ansResult = (TextView) view.findViewById(R.id.ansResult);
+        ansNum.setText(ansArrayList.get(position).getAnsNum());
+        ansResult.setText(ansArrayList.get(position).getAnsResult());
+        return view;
+    }
+}
